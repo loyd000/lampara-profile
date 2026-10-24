@@ -1,0 +1,15 @@
+# dependencies and build output
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+
+# secrets and Vercel link
+.env*
+!.env.example
+.vercel
+
+# working files: images pulled from the company PDF (converted copies live in public/assets), design-tool notes
+raw-assets
+.taste-skill
+.claude

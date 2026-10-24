@@ -1,0 +1,119 @@
+/* Tailwind without Preflight: the base layer below carries the site's own element defaults instead. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 381px;
+  --breakpoint-ph: 431px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1100px;
+  --breakpoint-xl: 1200px;
+
+  /* Night sections (deep navy into steel blue) alternate with a cool light ground,
+     after the client's reference board; LAMPARA's navy and yellow carry the actions. */
+  --color-*: initial;
+  --color-bg: #e6e9ef;
+  --color-surface: #ffffff;
+  --color-ink: #0c1322;
+  --color-muted: #4b5466;
+  --color-accent: #171e3b;
+  --color-accent-ink: #ffffff;
+  --color-field: #cfd5df;
+  --color-brand-yellow: #fbdb31;
+  --color-brand-yellow-ink: #171e3b;
+  --color-ray: #edcd9f;
+  --color-night: #070c18;
+  --color-night-2: #0f1c33;
+  --color-steel: #3f5d7d;
+  --color-night-ink: #e9edf4;
+  --color-night-muted: #a3b1c2;
+  --color-sheet: #070c18;
+  --color-sheet-ink: #e9edf4;
+  --color-sheet-muted: #a3b1c2;
+  --color-transparent: transparent;
+  --color-current: currentcolor;
+
+  --font-sans: var(--font-lexend), sans-serif;
+
+  --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { @slot; }
+  }
+}
+
+@layer base {
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--color-night); color: var(--color-ink); font: 400 17px/1.55 var(--font-sans); -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, p, figure, dl, dd, ul, ol { margin: 0; }
+  h1, h2, h3 { font-weight: 400; letter-spacing: -0.025em; line-height: 1.08; }
+  a { color: inherit; text-decoration: none; }
+  a, button { transition: color 150ms, background-color 150ms, border-color 150ms; }
+  button, input, textarea { font: inherit; }
+  button { color: inherit; cursor: pointer; }
+  button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  ::selection { background: var(--color-ray); color: var(--color-night); }
+  table { border-collapse: collapse; width: 100%; }
+  img { display: block; max-width: 100%; }
+  [hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer components {
+  /* Light and night grounds. */
+  .day { background: var(--color-bg); color: var(--color-ink); --muted: var(--color-muted); --line: rgba(12, 19, 34, 0.12); }
+  .night {
+    background:
+      radial-gradient(110% 80% at 90% 105%, rgba(63, 93, 125, 0.75) 0%, rgba(63, 93, 125, 0) 60%),
+      radial-gradient(70% 60% at 5% 0%, rgba(30, 52, 86, 0.6) 0%, rgba(30, 52, 86, 0) 70%),
+      linear-gradient(175deg, var(--color-night) 0%, var(--color-night-2) 60%, #182b47 100%);
+    color: var(--color-night-ink);
+    --muted: var(--color-night-muted); --line: rgba(233, 237, 244, 0.12);
+  }
+  .text-soft { color: var(--muted); }
+
+
+  .note { font-size: 16px; line-height: 1.55; }
+
+  /* Cards. */
+  .card { border-radius: 16px; overflow: hidden; }
+  .card-white { background: var(--color-surface); color: var(--color-ink); --muted: var(--color-muted); }
+  .card-ink { background: #0b1324; color: var(--color-night-ink); --muted: var(--color-night-muted); }
+  .card-glass { background: rgba(233, 237, 244, 0.07); }
+  .card-photo { position: relative; color: var(--color-night-ink); --muted: var(--color-night-muted); }
+  .card-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .card-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 12, 24, 0.15) 0%, rgba(7, 12, 24, 0.7) 40%, rgba(7, 12, 24, 0.95) 100%); }
+  .card-photo > :not(img) { position: relative; z-index: 1; }
+
+  .btn { background: transparent; color: inherit; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 10px; font-size: 15px; font-weight: 500; transition: transform 150ms var(--ease-glide), background-color 150ms, color 150ms, border-color 150ms; }
+  .btn:active { transform: scale(0.97); }
+  .btn-yellow { background: var(--color-brand-yellow); color: var(--color-brand-yellow-ink); }
+  .btn-yellow:hover { background: #ffe45c; }
+  .btn-line { border: 1px solid currentColor; }
+  .btn-line:hover { background: rgba(127, 127, 127, 0.12); }
+  .btn-navy { background: var(--color-accent); color: var(--color-accent-ink); }
+  .btn-navy:hover { background: #24305a; }
+
+  /* Reveal starts visible (no-JS stays visible); Reveal.tsx arms it only once JS can observe it. */
+  [data-reveal] > * { opacity: 1; transform: none; }
+  [data-reveal].reveal-armed > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms var(--ease-glide), transform 600ms var(--ease-glide);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  [data-reveal].reveal-armed.is-in > * { opacity: 1; transform: none; }
+
+  .press { transition: transform 150ms var(--ease-glide), opacity 150ms, background-color 150ms, border-color 150ms; }
+  .press:active { transform: scale(0.97); }
+}
