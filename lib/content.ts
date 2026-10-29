@@ -9,7 +9,7 @@ export const company = {
   founded: 2019,
   owner: 'Engr. John Karlo Mitra De Guzman',
   ownerTitle: 'CEO / Proprietor',
-  address: 'Maligaya St, Lusacan, Tiaong, Quezon, 4325',
+  address: '210 M.H. Del Pilar St., Maysilo, Malabon City',
   // Numbers read off project-photo watermarks in the source profile — confirm exact digits before publishing.
   phones: ['+63 966 314 5852', '+63 970 783 4005'],
   website: 'lamparaeis.com',
@@ -24,11 +24,11 @@ export const about = {
     'In 2019, LAMPARA embarked on a journey within the electrical industry, with a focus on advancing both conventional and renewable energy systems and redefining standards in electrical design, manufacturing, installation and service for residential and commercial projects alike. From site explorations and resource assessments to procurement and operational oversight, every project has been an opportunity to refine our process and sharpen our capabilities. At the heart of it all is client satisfaction: each engineering solution tailored to the client it is built for, and every partnership built on trust.',
   facts: [
     ['Founded', '2019'],
-    ['Based in', 'Tiaong, Quezon'],
+    ['Based in', 'Malabon City'],
   ] as [string, string][],
   credentials: [
     ['DTI', 'Business name registered nationally, No. 1975327'],
-    ['Municipality of Tiaong', 'Business permit for electrical installation'],
+    ['City of Malabon', 'Business permit No. 26-002855'],
     ['BIR', 'Registered, TIN 364-923-009-00000'],
   ] as [string, string][],
 };
@@ -111,7 +111,8 @@ export const streetlightProjects: Project[] = [
 
 export const credentials: { year: string; title: string; body: string; detail: string }[] = [
   { year: '2025', title: 'Business Name Registration', body: 'Department of Trade and Industry', detail: 'National, No. 1975327' },
-  { year: '2026', title: 'Business Permit', body: 'Municipality of Tiaong, Quezon', detail: 'Electrical installation' },
+  { year: '2026', title: 'Business Permit', body: 'City of Malabon', detail: 'No. 26-002855' },
+  { year: '2026', title: 'Zoning Clearance', body: 'City of Malabon Planning and Development', detail: 'Certificate of Non-Conformance' },
   { year: '', title: 'BIR Registration', body: 'Bureau of Internal Revenue', detail: 'TIN 364-923-009-00000' },
   { year: '', title: 'Solis inverter installer training', body: 'Manila', detail: 'Completed' },
   { year: '', title: 'Solis inverter installer training', body: 'Pampanga', detail: 'Completed' },
@@ -122,7 +123,8 @@ export const credentials: { year: string; title: string; body: string; detail: s
 /** Scans of the registration documents, shown beside the credentials list. */
 export const permits: { title: string; body: string; image: string }[] = [
   { title: 'DTI Business Name Registration', body: 'No. 1975327, valid to July 2030', image: '/assets/work/company/permit-dti.webp' },
-  { title: 'Business Permit', body: 'Municipality of Tiaong, Quezon, 2026', image: '/assets/work/company/permit-business.webp' },
+  { title: 'Business Permit', body: 'City of Malabon, No. 26-002855, valid to Dec 2026', image: '/assets/work/company/permit-business-malabon.webp' },
+  { title: 'Zoning Clearance', body: 'Certificate of Non-Conformance, City of Malabon', image: '/assets/work/company/zoning-cnc-malabon.webp' },
   { title: 'BIR Registration', body: 'TIN 364-923-009-00000', image: '/assets/work/company/permit-bir.webp' },
 ];
 

@@ -2,7 +2,7 @@ import LightRays from '@/components/LightRays';
 
 const POINTS: [string, string][] = [
   ['Residential to utility-scale', 'Rooftops, commercial buildings and ground-mount solar farms.'],
-  ['Licensed and registered', 'DTI, BIR and a Municipality of Tiaong business permit.'],
+  ['Licensed and registered', 'DTI, BIR and a City of Malabon business permit.'],
 ];
 
 function Point({ title, text }: { title: string; text: string }) {

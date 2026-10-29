@@ -121,8 +121,8 @@ export default async function Deck() {
             <p className="text-soft mt-3 text-[19px] leading-[1.5]">{vision}</p>
           </article>
           <article className="card card-white flex h-[380px] flex-col justify-end p-8">
-            <h3 className="text-[34px] leading-[1.1] font-light">Rooted in Tiaong, Quezon</h3>
-            <p className="text-soft mt-3 text-[19px] leading-[1.5]">Founded in {about.facts[0][1]}, serving homes, businesses and institutions across the Philippines from our base in Quezon province.</p>
+            <h3 className="text-[34px] leading-[1.1] font-light">From Quezon to Metro Manila</h3>
+            <p className="text-soft mt-3 text-[19px] leading-[1.5]">Founded in {about.facts[0][1]} in Tiaong, Quezon, and now operating from our office and warehouse in Malabon City, serving homes, businesses and institutions across the Philippines.</p>
           </article>
         </div>
       </Slide>
@@ -210,7 +210,7 @@ export default async function Deck() {
       {/* Permits */}
       <Slide total={total} page={AFTER_PROJECTS + 4} name="Permits and registration" tone="day">
         <h2 className={H2}>Permits and registration</h2>
-        <ul className="m-0 mt-12 grid min-h-0 flex-1 list-none grid-cols-3 gap-6 p-0">
+        <ul className="m-0 mt-12 grid min-h-0 flex-1 list-none grid-cols-4 gap-6 p-0">
           {permits.map(p => (
             <li key={p.title} className="card card-white flex min-h-0 flex-col p-5">
               <div className="min-h-0 flex-1 rounded-xl p-4" style={{ background: 'var(--color-bg)' }}>

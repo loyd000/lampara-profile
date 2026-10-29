@@ -65,8 +65,8 @@ export default async function Home() {
               </article>
               <article className="card card-white flex min-h-[340px] flex-col justify-end p-6" style={{ '--i': 2 } as never}>
                 <div>
-                  <h3 className="text-[24px] leading-[1.15] font-light">Rooted in Tiaong, Quezon</h3>
-                  <p className="note text-soft mt-3">Founded in {about.facts[0][1]}, serving homes, businesses and institutions across the Philippines from our base in Quezon province.</p>
+                  <h3 className="text-[24px] leading-[1.15] font-light">From Quezon to Metro Manila</h3>
+                  <p className="note text-soft mt-3">Founded in {about.facts[0][1]} in Tiaong, Quezon, and now operating from our office and warehouse in Malabon City, serving homes, businesses and institutions across the Philippines.</p>
                 </div>
               </article>
             </Reveal>
@@ -162,7 +162,7 @@ export default async function Home() {
               </table>
             </div>
           </div>
-          <ul className={`${WRAP} m-0 mt-10 grid list-none gap-4 p-0 md:grid-cols-3`}>
+          <ul className={`${WRAP} m-0 mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4`}>
             {permits.map(p => (
               <li key={p.title} className="card card-white p-4">
                 <a href={p.image} target="_blank" rel="noopener" className="block rounded-lg" style={{ background: 'var(--color-bg)' }}>
